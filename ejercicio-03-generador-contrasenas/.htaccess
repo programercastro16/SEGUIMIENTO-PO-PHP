@@ -1,0 +1,8 @@
+Options -Indexes
+RewriteEngine On
+RewriteBase /ejercicio-03-generador-contrasenas/
+
+# Redirigir todo al front controller salvo archivos/directorios existentes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]

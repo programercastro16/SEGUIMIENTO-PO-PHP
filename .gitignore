@@ -1,0 +1,18 @@
+# PHP
+*.log
+*.cache
+/vendor/
+composer.lock
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Data files (uncomment if you want to track them)
+# */data/*.json
+
