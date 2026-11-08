@@ -1,28 +1,30 @@
 # Ejercicio 10 - Plataforma de Encuestas
 
-**Materia:** Programación Orientada a la Web con PHP  
-**Patrón:** MVC (Modelo-Vista-Controlador)
+- Materia: Programacion Orientada a la Web con PHP
+- Arquitectura: MVC (Modelo-Vista-Controlador)
 
-## Descripción
-Aplicación para crear y responder encuestas en línea con análisis visual de resultados mediante gráficos de barras CSS.
+## Descripcion
+
+Sistema para la creacion, distribucion y respuesta de encuestas de opinion publica o diagnostico, acompanado de consolidacion grafica de respuestas.
 
 ## Funcionalidades
-- ➕ Crear encuestas con constructor dinámico de preguntas (JS)
-- 3 tipos de preguntas: Opción múltiple, Verdadero/Falso, Escala 1-5
-- 📝 Responder encuestas (con control de sesión para evitar doble respuesta)
-- 📊 Ver resultados con gráficos de barras CSS por pregunta
-- 🔒 Cerrar/Activar encuestas
-- 🗑️ Eliminar encuestas y sus respuestas
-- 📦 2 encuestas de ejemplo precargadas
 
-## Estructura MVC
-- **Model:** `EncuestaModel` - gestión de encuestas y respuestas en JSON
-- **Views:** `encuesta/index.php`, `encuesta/administrar.php`, `encuesta/form.php`, `encuesta/responder.php`, `encuesta/resultados.php`
-- **Controller:** `EncuestaController` - CRUD completo
+- Modulo de administracion con panel de encuestas activas y cerradas.
+- Diseñador dinamico de preguntas con soporte para: seleccion multiple con opciones personalizadas, dicotomica (Verdadero/Falso) y escala Likert (1 a 5).
+- Diligenciamiento de encuestas con verificacion de sesion para control de participacion unica.
+- Panel de resultados con generacion de graficos de barras porcentuales.
+- Eliminacion y cambio de estado de encuestas.
 
-## Ejecución
+## Componentes MVC
+
+- Modelo: `EncuestaModel` (persistencia de encuestas y respuestas en archivos JSON independientes).
+- Vistas: `encuesta/index.php`, `encuesta/administrar.php`, `encuesta/form.php`, `encuesta/responder.php` y `encuesta/resultados.php`.
+- Controlador: `EncuestaController` (manejo de formularios, captura de respuestas y reporte analitico).
+
+## Ejecucion
+
 ```bash
+cd ejercicio-10-plataforma-encuestas
 php -S localhost:8080
-# Abrir: http://localhost:8080
 ```
-
+Acceso desde el navegador: `http://localhost:8080`.

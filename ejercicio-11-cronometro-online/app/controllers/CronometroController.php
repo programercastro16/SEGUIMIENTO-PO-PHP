@@ -56,3 +56,4 @@ class CronometroController extends Controller {
         exit;
     }
 }
+

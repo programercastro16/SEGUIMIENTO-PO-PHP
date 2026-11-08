@@ -1,11 +1,12 @@
+# Seguimiento - Programacion Orientada a la Web con PHP
 
-# Seguimiento PO PHP - Programación Orientada a la Web con PHP
+Repositorio con 11 ejercicios practicos desarrollados bajo la arquitectura MVC (Modelo-Vista-Controlador) utilizando PHP nativo y persistencia basada en archivos JSON.
 
-Monorepo con **11 ejercicios prácticos** desarrollados con arquitectura **MVC en PHP puro**.
+## Estructura del Proyecto
 
-## 📁 Estructura del Repositorio
+El repositorio esta organizado de forma modular, manteniendo cada ejercicio de manera independiente en la raiz:
 
-```
+```text
 SEGUIMIENTO-PO-PHP/
 ├── ejercicio-01-lista-tareas/
 ├── ejercicio-02-calculadora-propinas/
@@ -18,69 +19,77 @@ SEGUIMIENTO-PO-PHP/
 ├── ejercicio-09-juego-memoria/
 ├── ejercicio-10-plataforma-encuestas/
 ├── ejercicio-11-cronometro-online/
+├── index.php
 └── README.md
 ```
 
-## 🏗️ Arquitectura MVC
+## Arquitectura MVC Implementada
 
-Cada ejercicio implementa el patrón **Modelo-Vista-Controlador**:
+Cada aplicacion implementa el patron arquitectonico MVC de manera desacoplada:
 
-```
+```text
 ejercicio-XX/
-├── index.php              # Front Controller (punto de entrada)
-├── .htaccess              # URL rewriting con mod_rewrite
+├── index.php              # Punto de entrada (Front Controller)
+├── .htaccess              # Reescritura de URLs amigables
 ├── app/
 │   ├── core/
-│   │   ├── App.php        # Router principal
-│   │   ├── Controller.php # Clase base del controlador
-│   │   └── Model.php      # Clase base del modelo
-│   ├── controllers/       # Controladores de la aplicación
-│   ├── models/            # Modelos de datos
-│   └── views/             # Plantillas HTML/PHP
-├── public/
-│   ├── css/style.css      # Estilos
-│   └── js/app.js          # Scripts
-├── data/                  # Almacenamiento JSON
+│   │   ├── App.php        # Enrutador
+│   │   ├── Controller.php # Controlador base
+│   │   └── Model.php      # Modelo base y persistencia JSON
+│   ├── controllers/       # Controladores del modulo
+│   ├── models/            # Logica de negocio y datos
+│   └── views/             # Vistas de la aplicacion
+├── public/                # Recursos estaticos (CSS, JS)
+├── data/                  # Archivos de datos JSON
 └── README.md
 ```
 
-## 📋 Ejercicios
+## Relacion de Ejercicios
 
-| # | Ejercicio | Descripción |
-|---|-----------|-------------|
-| 01 | **Lista de Tareas** | Agregar, eliminar y marcar tareas como completadas |
-| 02 | **Calculadora de Propinas** | Calcula propina según monto total y porcentaje |
-| 03 | **Generador de Contraseñas** | Genera contraseñas seguras con opciones configurables |
-| 04 | **Gestor de Gastos** | Registrar, categorizar y ver resumen de gastos mensuales |
-| 05 | **Sistema de Reservas** | Reservar citas/servicios con disponibilidad en línea |
-| 06 | **Gestor de Notas** | Escribir, organizar por categorías y buscar notas |
-| 07 | **Calendario de Eventos** | Calendario interactivo con recordatorios y notificaciones |
-| 08 | **Plataforma de Recetas** | Buscar, guardar y compartir recetas con filtros |
-| 09 | **Juego de Memoria** | Juego de cartas con imágenes, niveles y puntajes |
-| 10 | **Plataforma de Encuestas** | Crear/responder encuestas con informes visuales |
-| 11 | **Cronómetro Online** | Cronómetro con inicio, pausa, reinicio y vueltas |
+| No. | Ejercicio | Descripcion |
+|---|---|---|
+| 01 | Lista de Tareas | Gestion de tareas: creacion, eliminacion y actualizacion de estado (pendiente/completada). |
+| 02 | Calculadora de Propinas | Calculo del porcentaje de propina, total de cuenta y distribucion por persona con historial. |
+| 03 | Generador de Contraseñas | Generacion de cadenas seguras aleatorias con evaluacion de robustez y longitud configurable. |
+| 04 | Gestor de Gastos | Registro de egresos categorizados con resumen y distribucion mensual. |
+| 05 | Sistema de Reservas | Gestion y control de reservas de servicios, verificando disponibilidad de horarios. |
+| 06 | Gestor de Notas | Creacion, categorizacion, filtrado y busqueda textual de notas personales. |
+| 07 | Calendario de Eventos | Calendario dinamico mensual con gestion de eventos, horarios y recordatorios. |
+| 08 | Plataforma de Recetas | Catalogo y administracion de recetas de cocina con filtros por categoria y tiempo. |
+| 09 | Juego de Memoria | Juego de concentracion por turnos con niveles de dificultad y registro de puntajes. |
+| 10 | Plataforma de Encuestas | Administrador y receptor de cuestionarios con generacion de reportes visuales. |
+| 11 | Cronometro Online | Cronometro de precision en navegador con medicion de tiempos parciales y vueltas. |
 
-## 🚀 Cómo ejecutar cada ejercicio
+## Instrucciones de Ejecucion
 
+### Opcion 1: Servidor integrado de PHP (Recomendado)
+
+Para levantar el portal general con acceso a todos los ejercicios:
 ```bash
-# Opción 1: PHP built-in server
-cd ejercicio-XX-nombre
-php -S localhost:8080
+php -S localhost:8000
+```
+Luego abrir `http://localhost:8000` en el navegador.
 
-# Opción 2: XAMPP/WAMP
-# Copiar la carpeta del ejercicio en htdocs/www
+Para ejecutar un ejercicio en especifico de forma aislada:
+```bash
+cd ejercicio-01-lista-tareas
+php -S localhost:8080
 ```
 
-## 🛠️ Tecnologías
+### Opcion 2: Servidor Apache (XAMPP / WAMP / Laragon)
 
-- **PHP 8.x** (sin frameworks)
-- **HTML5 + CSS3**
-- **JavaScript Vanilla**
-- **JSON** como almacenamiento de datos
-- **Patrón MVC** implementado desde cero
+1. Clonar o copiar el repositorio dentro de la carpeta publica (`htdocs` o `www`).
+2. Acceder mediante el navegador a la ruta correspondiente (ej. `http://localhost/SEGUIMIENTO-PO-PHP`).
 
-## 👨‍💻 Autor
+## Tecnologias Utilizadas
 
-**Thomas Castro** - Instituto Tecnológico Metropolitano (ITM)  
-Materia: Programación Orientada a la Web con PHP
+- PHP 8.x (sin dependencias externas ni frameworks)
+- JavaScript (ES6+)
+- HTML5 / CSS3
+- Formato JSON para persistencia de datos
 
+## Informacion Academica
+
+- Estudiante: Thomas Castro
+- Institucion: Instituto Tecnologico Metropolitano (ITM)
+- Asignatura: Programacion Orientada a la Web con PHP

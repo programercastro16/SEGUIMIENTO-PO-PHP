@@ -1,26 +1,30 @@
 # Ejercicio 06 - Gestor de Notas
 
-**Materia:** Programación Orientada a la Web con PHP  
-**Patrón:** MVC (Modelo-Vista-Controlador)
+- Materia: Programacion Orientada a la Web con PHP
+- Arquitectura: MVC (Modelo-Vista-Controlador)
 
-## Descripción
-Aplicación para escribir y organizar notas personales con categorías, búsqueda y notas de colores estilo sticky notes.
+## Descripcion
+
+Aplicacion para la redaccion, archivo y consulta de notas breves y apuntes. Ofrece organizacion tematica por categorias y esquema visual por paleta de colores.
 
 ## Funcionalidades
-- ✍️ Crear, editar y eliminar notas
-- 🎨 Notas con colores personalizables (amarillo, azul, verde, rosa, morado, naranja, gris)
-- 📂 Organizar por categorías
-- 🔍 Búsqueda en título y contenido
-- 👁️ Vista completa de nota
 
-## Estructura MVC
-- **Model:** `NotaModel` - persistencia en JSON con búsqueda y filtros
-- **Views:** `nota/index.php`, `nota/form.php`, `nota/ver.php`
-- **Controller:** `NotaController` - CRUD + búsqueda
+- Operaciones CRUD completas para notas (creacion, lectura, edicion y borrado).
+- Clasificacion tematica (Personal, Trabajo, Ideas, Recordatorios, Estudio, Proyectos, Otros).
+- Personalizacion de color de fondo por nota.
+- Busqueda por coincidencia de texto en titulos y contenidos.
+- Vista ampliada de detalle por nota.
 
-## Ejecución
+## Componentes MVC
+
+- Modelo: `NotaModel` (persistencia JSON y motor de busqueda interna).
+- Vistas: `nota/index.php`, `nota/form.php` y `nota/ver.php`.
+- Controlador: `NotaController` (atencion de busquedas y peticiones CRUD).
+
+## Ejecucion
+
 ```bash
+cd ejercicio-06-gestor-notas
 php -S localhost:8080
-# Abrir: http://localhost:8080
 ```
-
+Acceso desde el navegador: `http://localhost:8080`.

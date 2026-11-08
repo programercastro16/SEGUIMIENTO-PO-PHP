@@ -1,72 +1,72 @@
 # Ejercicio 01 - Lista de Tareas
 
-**Materia:** Programación Orientada a la Web con PHP  
-**Patrón:** MVC (Modelo-Vista-Controlador)
+- Materia: Programacion Orientada a la Web con PHP
+- Arquitectura: MVC (Modelo-Vista-Controlador)
 
-## Descripción
-Aplicación web para gestionar tareas pendientes. Permite agregar, eliminar y marcar tareas como completadas.
+## Descripcion
+
+Aplicacion web para la administracion de tareas pendientes. Permite registrar nuevas tareas, eliminarlas y alternar su estado entre pendiente y completada.
 
 ## Funcionalidades
-- ✅ Agregar nuevas tareas
-- 🗑️ Eliminar tareas
-- ☑️ Marcar/desmarcar como completada
-- 🔍 Filtrar por: Todas / Pendientes / Completadas
-- 📊 Contador de tareas
 
-## Estructura MVC
-- **Model:** `TareasModel` - gestiona persistencia en JSON (`data/tareas.json`)
-- **View:** `tareas/index.php` - interfaz de usuario
-- **Controller:** `TareasController` - lógica de negocio
+- Agregar nuevas tareas a la lista.
+- Eliminar tareas registradas.
+- Marcar o desmarcar tareas como completadas.
+- Filtrar la vista por estado: Todas, Pendientes o Completadas.
+- Contador automatico de tareas totales y completadas.
+
+## Componentes MVC
+
+- Modelo: `TareasModel` (gestion de persistencia en `data/tareas.json`).
+- Vista: `tareas/index.php` (interfaz de usuario).
+- Controlador: `TareasController` (procesamiento de peticiones y flujo de datos).
 
 ## Estructura de Archivos
-```
+
+```text
 ejercicio-01-lista-tareas/
-├── index.php                        ← Front Controller
-├── .htaccess                        ← Rewrite rules
+├── index.php
+├── .htaccess
 ├── README.md
 ├── app/
 │   ├── core/
-│   │   ├── App.php                  ← Router
-│   │   ├── Controller.php           ← Base Controller
-│   │   └── Model.php                ← Base Model
+│   │   ├── App.php
+│   │   ├── Controller.php
+│   │   └── Model.php
 │   ├── controllers/
 │   │   └── TareasController.php
 │   ├── models/
 │   │   └── TareasModel.php
 │   └── views/
 │       └── tareas/
-│           └── index.php            ← Vista principal
+│           └── index.php
 ├── data/
-│   └── tareas.json                  ← Persistencia (auto-generado)
+│   └── tareas.json
 └── public/
     └── css/
         └── style.css
 ```
 
-## Ejecución con PHP Built-in Server
+## Ejecucion
+
+### Con servidor integrado de PHP:
 ```bash
 cd ejercicio-01-lista-tareas
 php -S localhost:8080
 ```
-Luego abrir: **http://localhost:8080**
+Ingresar en el navegador a `http://localhost:8080`.
 
-## Ejecución con Apache / XAMPP
-Colocar la carpeta en `htdocs/` y acceder a:  
-**http://localhost/ejercicio-01-lista-tareas/**
+### Con Apache (XAMPP / WAMP):
+Ubicar la carpeta del ejercicio en el directorio `htdocs` y acceder a:
+`http://localhost/ejercicio-01-lista-tareas/`
 
-## Rutas del Controlador
-| Método | URL                          | Acción                        |
-|--------|------------------------------|-------------------------------|
-| GET    | `index.php`                  | Lista todas las tareas        |
-| GET    | `index.php?filter=pendientes`| Filtra tareas pendientes      |
-| GET    | `index.php?filter=completadas`| Filtra tareas completadas    |
-| POST   | `index.php?url=tareas/agregar`| Agrega nueva tarea           |
-| POST   | `index.php?url=tareas/eliminar`| Elimina tarea por ID        |
-| POST   | `index.php?url=tareas/completar`| Alterna estado completada  |
+## Rutas Disponibles
 
-## Notas Técnicas
-- Persistencia en JSON: no requiere base de datos
-- Sin JavaScript (formularios HTML puros con POST)
-- Mensajes flash con `$_SESSION`
-- Validación: título no vacío, máximo 200 caracteres
-- IDs únicos con `uniqid()`
+| Metodo | Parametro URL | Accion |
+|---|---|---|
+| GET | (raiz) | Listado general de tareas |
+| GET | `?filter=pendientes` | Filtro de pendientes |
+| GET | `?filter=completadas` | Filtro de completadas |
+| POST | `?url=tareas/agregar` | Creacion de tarea |
+| POST | `?url=tareas/eliminar` | Eliminacion de tarea |
+| POST | `?url=tareas/completar` | Cambio de estado |

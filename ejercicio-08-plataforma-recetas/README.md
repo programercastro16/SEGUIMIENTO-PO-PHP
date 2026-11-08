@@ -1,28 +1,30 @@
 # Ejercicio 08 - Plataforma de Recetas
 
-**Materia:** Programación Orientada a la Web con PHP  
-**Patrón:** MVC (Modelo-Vista-Controlador)
+- Materia: Programacion Orientada a la Web con PHP
+- Arquitectura: MVC (Modelo-Vista-Controlador)
 
-## Descripción
-Sitio web para buscar, guardar y compartir recetas de cocina con opciones de filtrado por tipo de comida, ingredientes, tiempo y dificultad.
+## Descripcion
+
+Sistema web para la publicacion, exploracion y consulta de recetas culinarias, provisto de filtros multidimensionales para busquedas precisas.
 
 ## Funcionalidades
-- 🍳 Listar recetas con vista de tarjetas
-- 🔍 Búsqueda por título, descripción e ingredientes
-- 🏷️ Filtros: tipo de comida, dificultad, tiempo máximo
-- ➕ Crear nuevas recetas con ingredientes e instrucciones
-- ✏️ Editar y 🗑️ eliminar recetas
-- 📄 Vista detallada con ingredientes y pasos numerados
-- 📦 5 recetas de ejemplo precargadas
 
-## Estructura MVC
-- **Model:** `RecetaModel` - persistencia en JSON con datos de ejemplo
-- **Views:** `receta/index.php`, `receta/ver.php`, `receta/form.php`
-- **Controller:** `RecetaController` - CRUD completo con filtros
+- Exploracion de recetas en formato de catalogo visual.
+- Busqueda por terminos clave aplicados sobre titulos, descripciones e ingredientes.
+- Filtros por clasificacion de comida (Desayuno, Almuerzo, Cena, Postre, etc.), nivel de dificultad y tiempo maximo de preparacion.
+- Registro y modificacion de recetas con listas estructuradas de ingredientes y pasos secuenciales.
+- Vista de lectura optimizada para cocina.
 
-## Ejecución
+## Componentes MVC
+
+- Modelo: `RecetaModel` (administracion del dataset JSON de recetas precargadas y nuevas).
+- Vistas: `receta/index.php`, `receta/ver.php` y `receta/form.php`.
+- Controlador: `RecetaController` (gestion de catalogo, filtros y formularios).
+
+## Ejecucion
+
 ```bash
+cd ejercicio-08-plataforma-recetas
 php -S localhost:8080
-# Abrir: http://localhost:8080
 ```
-
+Acceso desde el navegador: `http://localhost:8080`.

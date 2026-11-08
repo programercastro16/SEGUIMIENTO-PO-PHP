@@ -1,26 +1,31 @@
 # Ejercicio 07 - Calendario de Eventos
 
-**Materia:** Programación Orientada a la Web con PHP  
-**Patrón:** MVC (Modelo-Vista-Controlador)
+- Materia: Programacion Orientada a la Web con PHP
+- Arquitectura: MVC (Modelo-Vista-Controlador)
 
-## Descripción
-Calendario interactivo donde los usuarios pueden agregar, editar y eliminar eventos con funcionalidades de recordatorios y categorías por color.
+## Descripcion
+
+Modulo de calendario interactivo para la administracion y planeacion de actividades y compromisos temporales.
 
 ## Funcionalidades
-- 📆 Vista de calendario mensual con navegación
-- ➕ Crear, editar y eliminar eventos
-- 📋 Vista detallada por día
-- 📌 Próximos eventos (7 días)
-- 🏷️ Categorías: Trabajo, Personal, Cumpleaños, Reunión, Recordatorio, Festivo, Otro
 
-## Estructura MVC
-- **Model:** `EventoModel` - persistencia en JSON con filtros por fecha
-- **Views:** `evento/index.php`, `evento/form.php`, `evento/dia.php`
-- **Controller:** `EventoController` - CRUD + navegación mensual
+- Generacion dinamica de cuadrilla mensual mediante funciones de fecha de PHP.
+- Navegacion secuencial entre meses y años.
+- Creacion, actualizacion y eliminacion de eventos asociados a fechas y horas especificas.
+- Asignacion de categorias (Trabajo, Personal, Cumpleaños, Reunion, Recordatorio, Festivo, Otro).
+- Vista individual detallada de actividades por jornada.
+- Indicador de eventos con recordatorio habilitado.
 
-## Ejecución
+## Componentes MVC
+
+- Modelo: `EventoModel` (persistencia JSON y filtrado temporal por rango de fechas).
+- Vistas: `evento/index.php`, `evento/form.php` y `evento/dia.php`.
+- Controlador: `EventoController` (logica de calendario y operacion de eventos).
+
+## Ejecucion
+
 ```bash
+cd ejercicio-07-calendario-eventos
 php -S localhost:8080
-# Abrir: http://localhost:8080
 ```
-
+Acceso desde el navegador: `http://localhost:8080`.

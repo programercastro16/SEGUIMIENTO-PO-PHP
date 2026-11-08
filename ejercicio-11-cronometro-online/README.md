@@ -1,39 +1,31 @@
-# Ejercicio 11 - Cronómetro Online
+# Ejercicio 11 - Cronometro Online
 
-**Materia:** Programación Orientada a la Web con PHP  
-**Patrón:** MVC (Modelo-Vista-Controlador)
+- Materia: Programacion Orientada a la Web con PHP
+- Arquitectura: MVC (Modelo-Vista-Controlador)
 
-## Descripción
-Cronómetro web de alta precisión con funciones completas: inicio, pausa, reinicio, registro de vueltas y guardado de sesiones.
+## Descripcion
+
+Herramienta de cronometraje digital de alta precision, desarrollada con logica de renderizado basada en `requestAnimationFrame` y registro persistente de sesiones.
 
 ## Funcionalidades
-- ▶️ Iniciar / ⏸ Pausar / 🔄 Reiniciar
-- 🏁 Registrar vueltas con tiempo parcial y tiempo total
-- 🏆 Vuelta más rápida resaltada en verde
-- 🐌 Vuelta más lenta resaltada en rojo
-- 💾 Guardar sesión con nombre personalizado (AJAX)
-- 📋 Historial de sesiones guardadas
-- 👁️ Ver detalle de cada sesión con tabla de vueltas
-- ⌨️ Atajos de teclado (Espacio, L, R)
-- 🌙 Diseño dark theme con display estilo cronómetro real
 
-## Atajos de Teclado
-| Tecla | Acción |
-|-------|--------|
-| `Espacio` | Iniciar / Pausar |
-| `L` | Registrar vuelta |
-| `R` | Reiniciar |
+- Operaciones de inicio, pausa y reinicio de conteo.
+- Toma de vueltas y tiempos parciales (Laps) con indicacion de mejores y peores registros.
+- Guardado de sesiones con identificador nominal mediante peticiones asincronas JSON.
+- Panel de historial de sesiones guardadas.
+- Vista desglosada de vueltas por sesion registrada.
+- Soporte para atajos de teclado (Barra espaciadora para inicio/pausa, tecla L para vuelta, tecla R para reinicio).
 
-## Estructura MVC
-- **Model:** `CronometroModel` - persistencia de sesiones y vueltas en JSON
-- **Views:** `cronometro/index.php`, `cronometro/historial.php`, `cronometro/sesion.php`
-- **Controller:** `CronometroController` - endpoints para guardar/recuperar sesiones (AJAX)
+## Componentes MVC
 
-## Precisión
-Usa `requestAnimationFrame` + `Date.now()` para actualización a ~60fps sin drift acumulativo.
+- Modelo: `CronometroModel` (almacenamiento de sesiones cronometradas en `data/sesiones.json`).
+- Vistas: `cronometro/index.php`, `cronometro/historial.php` y `cronometro/sesion.php`.
+- Controlador: `CronometroController` (endpoints de API para almacenamiento y visualizacion de historiales).
 
-## Ejecución
+## Ejecucion
+
 ```bash
+cd ejercicio-11-cronometro-online
 php -S localhost:8080
-# Abrir: http://localhost:8080
 ```
+Acceso desde el navegador: `http://localhost:8080`.
