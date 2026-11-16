@@ -37,6 +37,7 @@ class ReservaController extends Controller
 
         $this->view('reserva.index', compact(
             'reservas',
+            'todasLasReservas',
             'serviciosMap',
             'filtroEstado',
             'mensaje',

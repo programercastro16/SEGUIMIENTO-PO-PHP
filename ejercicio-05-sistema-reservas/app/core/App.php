@@ -1,39 +1,35 @@
 <?php
 class App
 {
-    protected string $controller;
-    protected string $method;
-    protected array $params;
+    protected string $defaultController = 'ReservaController';
+    protected string $defaultMethod     = 'index';
 
     public function __construct()
     {
         $url = $this->parseUrl();
 
-        $controllerName = isset($url[0]) && $url[0] !== ''
-            ? ucfirst(strtolower($url[0])) . 'Controller'
-            : 'ReservaController';
-
-        $controllerFile = BASE_PATH . '/app/controllers/' . $controllerName . '.php';
-
-        if (file_exists($controllerFile)) {
-            require_once $controllerFile;
-            $this->controller = $controllerName;
-        } else {
-            require_once BASE_PATH . '/app/controllers/ReservaController.php';
-            $this->controller = 'ReservaController';
+        $controllerName = $this->defaultController;
+        if (!empty($url[0])) {
+            $candidate = ucfirst(strtolower($url[0])) . 'Controller';
+            if (file_exists(BASE_PATH . '/app/controllers/' . $candidate . '.php')) {
+                $controllerName = $candidate;
+            }
         }
 
-        $this->controller = new $this->controller();
+        require_once BASE_PATH . '/app/controllers/' . $controllerName . '.php';
+        $controller = new $controllerName();
 
-        $this->method = isset($url[1]) && $url[1] !== '' ? $url[1] : 'index';
-
-        if (!method_exists($this->controller, $this->method)) {
-            $this->method = 'index';
+        $method = $this->defaultMethod;
+        if (!empty($url[1])) {
+            $candidateMethod = strtolower($url[1]);
+            if (method_exists($controller, $candidateMethod)) {
+                $method = $candidateMethod;
+            }
         }
 
-        $this->params = array_values(array_slice($url, 2));
+        $params = array_values(array_slice($url, 2));
 
-        call_user_func_array([$this->controller, $this->method], $this->params);
+        call_user_func_array([$controller, $method], $params);
     }
 
     protected function parseUrl(): array

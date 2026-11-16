@@ -1,0 +1,67 @@
+[
+    {
+        "id": "e1",
+        "titulo": "Satisfacción con el curso",
+        "descripcion": "Ayúdanos a mejorar respondiendo esta breve encuesta sobre tu experiencia.",
+        "estado": "activa",
+        "preguntas": [
+            {
+                "id": "q1",
+                "texto": "¿Cómo calificarías el curso en general?",
+                "tipo": "escala",
+                "opciones": []
+            },
+            {
+                "id": "q2",
+                "texto": "¿El material de estudio fue claro?",
+                "tipo": "verdadero_falso",
+                "opciones": []
+            },
+            {
+                "id": "q3",
+                "texto": "¿Qué aspecto mejorarías?",
+                "tipo": "opcion_multiple",
+                "opciones": [
+                    "Las explicaciones",
+                    "Los ejercicios prácticos",
+                    "La duración",
+                    "Los recursos adicionales"
+                ]
+            }
+        ],
+        "created_at": "2026-01-10 08:00:00"
+    },
+    {
+        "id": "e2",
+        "titulo": "Preferencias tecnológicas",
+        "descripcion": "Encuesta sobre tus herramientas de desarrollo favoritas.",
+        "estado": "activa",
+        "preguntas": [
+            {
+                "id": "q1",
+                "texto": "¿Cuál es tu lenguaje favorito?",
+                "tipo": "opcion_multiple",
+                "opciones": [
+                    "PHP",
+                    "JavaScript",
+                    "Python",
+                    "Java",
+                    "C#"
+                ]
+            },
+            {
+                "id": "q2",
+                "texto": "¿Usas control de versiones (Git)?",
+                "tipo": "verdadero_falso",
+                "opciones": []
+            },
+            {
+                "id": "q3",
+                "texto": "¿Cuánto disfrutas programar?",
+                "tipo": "escala",
+                "opciones": []
+            }
+        ],
+        "created_at": "2026-01-11 09:00:00"
+    }
+]

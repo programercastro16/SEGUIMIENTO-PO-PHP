@@ -223,7 +223,7 @@
 
     <!-- Stats -->
     <?php
-        $todas = $this->model->getAll();
+        $todas = $todasLasReservas ?? [];
         $cPendiente  = count(array_filter($todas, fn($r) => $r['estado'] === 'pendiente'));
         $cConfirmado = count(array_filter($todas, fn($r) => $r['estado'] === 'confirmado'));
         $cCancelado  = count(array_filter($todas, fn($r) => $r['estado'] === 'cancelado'));

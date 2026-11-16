@@ -1,41 +1,39 @@
 <?php
 class App
 {
-    protected string $controller = 'TareasController';
-    protected string $method    = 'index';
-    protected array  $params    = [];
+    protected string $defaultController = 'TareasController';
+    protected string $defaultMethod     = 'index';
 
     public function __construct()
     {
         $url = $this->parseUrl();
 
         // --- Controller ---
+        $controllerName = $this->defaultController;
         if (!empty($url[0])) {
-            $controllerName = ucfirst(strtolower($url[0])) . 'Controller';
-            $file = APP_PATH . '/controllers/' . $controllerName . '.php';
-            if (file_exists($file)) {
-                $this->controller = $controllerName;
-                unset($url[0]);
+            $candidate = ucfirst(strtolower($url[0])) . 'Controller';
+            if (file_exists(APP_PATH . '/controllers/' . $candidate . '.php')) {
+                $controllerName = $candidate;
             }
         }
 
-        require_once APP_PATH . '/controllers/' . $this->controller . '.php';
-        $this->controller = new $this->controller();
+        require_once APP_PATH . '/controllers/' . $controllerName . '.php';
+        $controller = new $controllerName();
 
         // --- Method ---
+        $method = $this->defaultMethod;
         if (!empty($url[1])) {
-            $methodName = strtolower($url[1]);
-            if (method_exists($this->controller, $methodName)) {
-                $this->method = $methodName;
-                unset($url[1]);
+            $candidateMethod = strtolower($url[1]);
+            if (method_exists($controller, $candidateMethod)) {
+                $method = $candidateMethod;
             }
         }
 
         // --- Params ---
-        $this->params = !empty($url) ? array_values($url) : [];
+        $params = array_values(array_slice($url, 2));
 
         // --- Dispatch ---
-        call_user_func_array([$this->controller, $this->method], $this->params);
+        call_user_func_array([$controller, $method], $params);
     }
 
     protected function parseUrl(): array
