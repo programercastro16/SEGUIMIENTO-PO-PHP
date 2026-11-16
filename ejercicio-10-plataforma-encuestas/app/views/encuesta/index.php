@@ -30,7 +30,7 @@
 <body>
 <header>
     <div><h1>📊 Plataforma de Encuestas</h1><p>Responde encuestas y comparte tu opinión</p></div>
-    <a href="/?url=encuesta/administrar" class="btn-admin">⚙️ Administrar</a>
+    <a href="index.php?url=encuesta/administrar" class="btn-admin">⚙️ Administrar</a>
 </header>
 <div class="container">
     <?php if (!empty($_SESSION['flash'])): ?>
@@ -53,7 +53,7 @@
                 <span class="badge-ya">✅ Ya respondiste esta encuesta</span>
                 <div class="btn-responder btn-disabled">Ya respondida</div>
             <?php else: ?>
-                <a href="/?url=encuesta/responder/<?= $e['id'] ?>" class="btn-responder">📝 Responder Encuesta</a>
+                <a href="index.php?url=encuesta/responder/<?= $e['id'] ?>" class="btn-responder">📝 Responder Encuesta</a>
             <?php endif; ?>
         </div>
         <?php endforeach; ?>

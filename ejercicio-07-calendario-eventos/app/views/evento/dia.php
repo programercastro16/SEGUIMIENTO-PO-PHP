@@ -106,8 +106,8 @@ $fechaFormateada = date('d \d\e F \d\e Y', strtotime($fecha));
         <p style="font-size:.85rem;opacity:.85;"><?= $fechaFormateada ?></p>
     </div>
     <div style="display:flex;gap:.75rem;">
-        <a href="/?url=evento/nuevo&fecha=<?= $fecha ?>" class="btn-header">➕ Nuevo</a>
-        <a href="/?url=evento" class="btn-header">← Calendario</a>
+        <a href="index.php?url=evento/nuevo&fecha=<?= $fecha ?>" class="btn-header">➕ Nuevo</a>
+        <a href="index.php?url=evento" class="btn-header">← Calendario</a>
     </div>
 </header>
 
@@ -116,7 +116,7 @@ $fechaFormateada = date('d \d\e F \d\e Y', strtotime($fecha));
         <div class="empty">
             <div class="icon">📭</div>
             <p style="margin-top:.5rem;">No hay eventos para este día.</p>
-            <a href="/?url=evento/nuevo&fecha=<?= $fecha ?>" style="
+            <a href="index.php?url=evento/nuevo&fecha=<?= $fecha ?>" style="
                 display:inline-block;margin-top:1rem;padding:.65rem 1.4rem;
                 background:#7c3aed;color:#fff;border-radius:10px;text-decoration:none;font-weight:700;">
                 ➕ Agregar evento
@@ -144,8 +144,8 @@ $fechaFormateada = date('d \d\e F \d\e Y', strtotime($fecha));
                 <?php endif; ?>
             </div>
             <div class="actions">
-                <a href="/?url=evento/editar/<?= $ev['id'] ?>" class="btn-sm btn-edit">✏️</a>
-                <form action="/?url=evento/eliminar" method="POST"
+                <a href="index.php?url=evento/editar/<?= $ev['id'] ?>" class="btn-sm btn-edit">✏️</a>
+                <form action="index.php?url=evento/eliminar" method="POST"
                       onsubmit="return confirm('¿Eliminar este evento?')">
                     <input type="hidden" name="id" value="<?= htmlspecialchars($ev['id']) ?>">
                     <button type="submit" class="btn-sm btn-delete">🗑️</button>

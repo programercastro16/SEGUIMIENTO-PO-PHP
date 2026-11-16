@@ -116,9 +116,9 @@ $border = $borderColors[$nota['color'] ?? 'amarillo'] ?? '#f9a825';
     <div class="nota-contenido"><?= htmlspecialchars($nota['contenido']) ?></div>
 
     <div class="btn-row">
-        <a href="/?url=nota" class="btn btn-back">← Volver</a>
-        <a href="/?url=nota/editar/<?= $nota['id'] ?>" class="btn btn-edit">✏️ Editar</a>
-        <form action="/?url=nota/eliminar" method="POST" style="display:inline;"
+        <a href="index.php?url=nota" class="btn btn-back">← Volver</a>
+        <a href="index.php?url=nota/editar/<?= $nota['id'] ?>" class="btn btn-edit">✏️ Editar</a>
+        <form action="index.php?url=nota/eliminar" method="POST" style="display:inline;"
               onsubmit="return confirm('¿Eliminar esta nota?')">
             <input type="hidden" name="id" value="<?= htmlspecialchars($nota['id']) ?>">
             <button type="submit" class="btn btn-delete">🗑️ Eliminar</button>

@@ -157,13 +157,13 @@ $mesesNombres = $meses;
             <?= $mesesNombres[$mes] ?? $mes ?> <?= $anio ?>
         </p>
     </div>
-    <a href="/?url=gasto" class="btn-back">← Volver</a>
+    <a href="index.php?url=gasto" class="btn-back">← Volver</a>
 </header>
 
 <div class="container">
 
     <!-- Filtro de mes -->
-    <form class="month-filter" method="GET" action="/">
+    <form class="month-filter" method="GET" action="index.php">
         <input type="hidden" name="url" value="gasto/resumen">
         <label>Período:</label>
         <select name="mes">

@@ -52,8 +52,8 @@ class Controller
      */
     protected function redirect(string $path = ''): void
     {
-        $base = '/ejercicio-02-calculadora-propinas/';
-        header('Location: ' . $base . ltrim($path, '/'));
+        $clean = ltrim($path, '/');
+        header('Location: index.php' . ($clean !== '' ? '?url=' . $clean : ''));
         exit;
     }
 }

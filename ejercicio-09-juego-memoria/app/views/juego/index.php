@@ -66,7 +66,7 @@
             <div class="icon"><?= $icons[$key] ?></div>
             <h2><?= $n['nombre'] ?></h2>
             <p><?= $n['pares'] ?> pares · <?= $n['pares']*2 ?> cartas</p>
-            <a href="/?url=juego/jugar/<?= $key ?>" class="btn-play">▶ Jugar</a>
+            <a href="index.php?url=juego/jugar/<?= $key ?>" class="btn-play">▶ Jugar</a>
         </div>
         <?php endforeach; ?>
     </div>

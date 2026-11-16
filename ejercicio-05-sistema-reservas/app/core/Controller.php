@@ -14,7 +14,8 @@ class Controller
 
     protected function redirect(string $path): void
     {
-        header('Location: ' . BASE_URL . '/' . ltrim($path, '/'));
+        $clean = ltrim($path, '/');
+        header('Location: index.php' . ($clean !== '' ? '?url=' . $clean : ''));
         exit;
     }
 

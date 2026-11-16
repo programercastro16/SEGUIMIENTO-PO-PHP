@@ -4,7 +4,7 @@
  */
 $esEdicion = !empty($evento['id']);
 $titulo    = $esEdicion ? '✏️ Editar Evento' : '➕ Nuevo Evento';
-$accion    = $esEdicion ? '/?url=evento/editar/' . $evento['id'] : '/?url=evento/nuevo';
+$accion    = $esEdicion ? 'index.php?url=evento/editar/' . $evento['id'] : 'index.php?url=evento/nuevo';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -150,7 +150,7 @@ $accion    = $esEdicion ? '/?url=evento/editar/' . $evento['id'] : '/?url=evento
         </div>
 
         <div class="btn-row">
-            <a href="/?url=evento" class="btn-secondary">← Cancelar</a>
+            <a href="index.php?url=evento" class="btn-secondary">← Cancelar</a>
             <button type="submit" class="btn-primary">
                 <?= $esEdicion ? '💾 Guardar Cambios' : '➕ Crear Evento' ?>
             </button>

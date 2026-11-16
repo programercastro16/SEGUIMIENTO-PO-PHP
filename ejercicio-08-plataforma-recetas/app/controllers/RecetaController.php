@@ -22,7 +22,7 @@ class RecetaController extends Controller {
 
     public function ver(string $id = ''): void {
         $receta = $this->model->getById($id);
-        if (!$receta) { header('Location: /?url=receta'); exit; }
+        if (!$receta) { header('Location: index.php?url=receta'); exit; }
         $this->view('receta/ver', compact('receta'));
     }
 
@@ -54,7 +54,7 @@ class RecetaController extends Controller {
                 $receta['instrucciones'] = array_values($receta['instrucciones']);
                 $this->model->crear($receta);
                 $_SESSION['flash'] = '✅ Receta creada correctamente.';
-                header('Location: /?url=receta');
+                header('Location: index.php?url=receta');
                 exit;
             }
         }
@@ -63,7 +63,7 @@ class RecetaController extends Controller {
 
     public function editar(string $id = ''): void {
         $receta = $this->model->getById($id);
-        if (!$receta) { header('Location: /?url=receta'); exit; }
+        if (!$receta) { header('Location: index.php?url=receta'); exit; }
 
         $tipos        = $this->model->getTiposComida();
         $dificultades = $this->model->getDificultades();
@@ -84,7 +84,7 @@ class RecetaController extends Controller {
             if (empty($datos['titulo'])) $errores[] = 'El título es obligatorio.';
             if (empty($errores)) {
                 $this->model->editar($id, $datos);
-                header('Location: /?url=receta/ver/' . $id);
+                header('Location: index.php?url=receta/ver/' . $id);
                 exit;
             }
             $receta = array_merge($receta, $datos);
@@ -96,7 +96,7 @@ class RecetaController extends Controller {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->model->eliminar($_POST['id'] ?? '');
         }
-        header('Location: /?url=receta');
+        header('Location: index.php?url=receta');
         exit;
     }
 }

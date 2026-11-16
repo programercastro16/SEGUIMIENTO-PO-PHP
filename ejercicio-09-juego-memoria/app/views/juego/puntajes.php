@@ -21,7 +21,7 @@
 </head>
 <body>
 <div class="container">
-    <a href="/?url=juego" class="back">← Inicio</a>
+    <a href="index.php?url=juego" class="back">← Inicio</a>
     <h1>🏆 Tabla de Puntajes</h1>
     <?php foreach ($niveles as $key => $n): ?>
     <div class="level-section">

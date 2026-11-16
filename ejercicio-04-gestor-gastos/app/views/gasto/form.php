@@ -7,8 +7,8 @@
 $esEdicion = !empty($gasto['id']);
 $titulo    = $esEdicion ? '✏️ Editar Gasto' : '➕ Agregar Gasto';
 $accion    = $esEdicion
-    ? '/?url=gasto/editar/' . $gasto['id']
-    : '/?url=gasto/agregar';
+    ? 'index.php?url=gasto/editar/' . $gasto['id']
+    : 'index.php?url=gasto/agregar';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -127,7 +127,7 @@ $accion    = $esEdicion
         </div>
 
         <div class="btn-row">
-            <a href="/?url=gasto" class="btn-secondary">← Cancelar</a>
+            <a href="index.php?url=gasto" class="btn-secondary">← Cancelar</a>
             <button type="submit" class="btn-primary">
                 <?= $esEdicion ? '💾 Guardar Cambios' : '➕ Agregar Gasto' ?>
             </button>

@@ -39,7 +39,7 @@ class EncuestaController extends Controller {
                 }
                 $this->model->crear(['titulo'=>$titulo,'descripcion'=>$descripcion,'preguntas'=>$preguntas]);
                 $_SESSION['flash'] = '✅ Encuesta creada correctamente.';
-                header('Location: /?url=encuesta/administrar');
+                header('Location: index.php?url=encuesta/administrar');
                 exit;
             }
         }
@@ -49,7 +49,7 @@ class EncuestaController extends Controller {
     public function responder(string $id = ''): void {
         $encuesta = $this->model->getById($id);
         if (!$encuesta || $encuesta['estado'] !== 'activa') {
-            header('Location: /?url=encuesta'); exit;
+            header('Location: index.php?url=encuesta'); exit;
         }
         $yaRespondio = $this->model->yaRespondio($id);
         $errores = [];
@@ -67,7 +67,7 @@ class EncuestaController extends Controller {
                 $this->model->guardarRespuesta($id, $respuestas);
                 $_SESSION['respondio_' . $id] = true;
                 $_SESSION['flash'] = '✅ ¡Gracias por responder la encuesta!';
-                header('Location: /?url=encuesta');
+                header('Location: index.php?url=encuesta');
                 exit;
             }
         }
@@ -76,7 +76,7 @@ class EncuestaController extends Controller {
 
     public function resultados(string $id = ''): void {
         $encuesta   = $this->model->getById($id);
-        if (!$encuesta) { header('Location: /?url=encuesta/administrar'); exit; }
+        if (!$encuesta) { header('Location: index.php?url=encuesta/administrar'); exit; }
         $resultados = $this->model->getResultados($id);
         $total      = $this->model->totalRespuestas($id);
         $this->view('encuesta/resultados', compact('encuesta','resultados','total'));
@@ -84,13 +84,13 @@ class EncuestaController extends Controller {
 
     public function cerrar(string $id = ''): void {
         $this->model->cambiarEstado($id, 'cerrada');
-        header('Location: /?url=encuesta/administrar');
+        header('Location: index.php?url=encuesta/administrar');
         exit;
     }
 
     public function activar(string $id = ''): void {
         $this->model->cambiarEstado($id, 'activa');
-        header('Location: /?url=encuesta/administrar');
+        header('Location: index.php?url=encuesta/administrar');
         exit;
     }
 
@@ -98,7 +98,7 @@ class EncuestaController extends Controller {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->model->eliminar($_POST['id'] ?? '');
         }
-        header('Location: /?url=encuesta/administrar');
+        header('Location: index.php?url=encuesta/administrar');
         exit;
     }
 }

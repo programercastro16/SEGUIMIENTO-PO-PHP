@@ -30,14 +30,14 @@
 <body>
 <header>
     <h1>📋 Historial de Sesiones</h1>
-    <a href="/?url=cronometro" class="btn-h">⏱️ Cronómetro</a>
+    <a href="index.php?url=cronometro" class="btn-h">⏱️ Cronómetro</a>
 </header>
 <div class="container">
     <?php if (empty($sesiones)): ?>
         <div class="empty">
             <span class="icon">📭</span>
             No hay sesiones guardadas aún.<br>
-            <a href="/?url=cronometro" style="color:#34d399;margin-top:1rem;display:inline-block;">← Ir al cronómetro</a>
+            <a href="index.php?url=cronometro" style="color:#34d399;margin-top:1rem;display:inline-block;">← Ir al cronómetro</a>
         </div>
     <?php else: ?>
     <div class="table-wrap">
@@ -54,8 +54,8 @@
                     <td style="color:rgba(255,255,255,.4);font-size:.82rem;"><?= date('d/m/Y H:i', strtotime($s['fecha'])) ?></td>
                     <td>
                         <div class="actions">
-                            <a href="/?url=cronometro/verSesion/<?= $s['id'] ?>" class="btn-sm btn-ver">👁️ Ver</a>
-                            <form action="/?url=cronometro/eliminar" method="POST" onsubmit="return confirm('¿Eliminar esta sesión?')">
+                            <a href="index.php?url=cronometro/verSesion/<?= $s['id'] ?>" class="btn-sm btn-ver">👁️ Ver</a>
+                            <form action="index.php?url=cronometro/eliminar" method="POST" onsubmit="return confirm('¿Eliminar esta sesión?')">
                                 <input type="hidden" name="id" value="<?= $s['id'] ?>">
                                 <button type="submit" class="btn-sm btn-del">🗑️</button>
                             </form>

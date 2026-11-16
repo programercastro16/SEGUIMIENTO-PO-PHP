@@ -96,7 +96,7 @@
         </div>
     <?php endif; ?>
 
-    <form action="/?url=reserva/nueva" method="POST">
+    <form action="index.php?url=reserva/nueva" method="POST">
 
         <div class="form-group">
             <label for="nombre_cliente">👤 Nombre completo</label>
@@ -164,7 +164,7 @@
         </div>
 
         <div class="btn-row">
-            <a href="/?url=reserva" class="btn-secondary">← Cancelar</a>
+            <a href="index.php?url=reserva" class="btn-secondary">← Cancelar</a>
             <button type="submit" class="btn-primary">📅 Reservar</button>
         </div>
     </form>

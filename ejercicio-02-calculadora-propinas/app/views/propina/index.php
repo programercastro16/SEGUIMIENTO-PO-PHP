@@ -388,7 +388,7 @@
         <div class="card">
             <h2 class="card-title">🧾 Datos de la Cuenta</h2>
 
-            <form action="/ejercicio-02-calculadora-propinas/propina/calcular" method="POST" novalidate>
+            <form action="index.php?url=propina/calcular" method="POST" novalidate>
 
                 <!-- Monto -->
                 <div class="form-group">
@@ -517,7 +517,7 @@
             <div class="card">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
                     <h2 class="card-title" style="margin-bottom:0; border:none; padding:0;">🕐 Últimos Cálculos</h2>
-                    <a href="/ejercicio-02-calculadora-propinas/propina/historial" class="nav-link">Ver todos →</a>
+                    <a href="index.php?url=propina/historial" class="nav-link">Ver todos →</a>
                 </div>
 
                 <div class="table-wrapper">

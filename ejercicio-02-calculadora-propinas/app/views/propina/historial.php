@@ -140,7 +140,7 @@
 
         <div class="card-header">
             <h2 class="card-title">🕐 Cálculos Recientes</h2>
-            <a href="/ejercicio-02-calculadora-propinas/" class="nav-link">← Volver a la calculadora</a>
+            <a href="index.php" class="nav-link">← Volver a la calculadora</a>
         </div>
 
         <?php if (!empty($historial)): ?>

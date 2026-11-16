@@ -33,7 +33,7 @@
 <body>
 <header>
     <h1>⏱️ <?= htmlspecialchars($sesion['nombre_sesion']) ?></h1>
-    <a href="/?url=cronometro/historial" class="btn-h">← Historial</a>
+    <a href="index.php?url=cronometro/historial" class="btn-h">← Historial</a>
 </header>
 <div class="container">
     <div class="stats">

@@ -64,8 +64,8 @@
         <p style="font-size: .85rem; opacity: .85; margin-top: .2rem;">Compromisos agendados para la próxima semana</p>
     </div>
     <nav class="header-nav">
-        <a href="<?= BASE_URL ?>/evento/nuevo" class="btn-header">Nuevo Evento</a>
-        <a href="<?= BASE_URL ?>/evento/index" class="btn-header">Calendario</a>
+        <a href="index.php?url=evento/nuevo" class="btn-header">Nuevo Evento</a>
+        <a href="index.php?url=evento/index" class="btn-header">Calendario</a>
     </nav>
 </header>
 <main>
@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div>
-                    <a href="<?= BASE_URL ?>/evento/dia/<?= urlencode($ev['fecha']) ?>" style="color: #7e22ce; font-weight: 600; text-decoration: none; font-size: .9rem;">Ver día &rarr;</a>
+                    <a href="index.php?url=evento/dia/<?= urlencode($ev['fecha']) ?>" style="color: #7e22ce; font-weight: 600; text-decoration: none; font-size: .9rem;">Ver día &rarr;</a>
                 </div>
             </div>
         <?php endforeach; ?>

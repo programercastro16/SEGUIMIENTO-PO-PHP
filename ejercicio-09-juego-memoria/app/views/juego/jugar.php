@@ -179,8 +179,8 @@
         <div class="hud-label">Tiempo</div>
         <div class="hud-value" id="timer">00:00</div>
     </div>
-    <a href="/?url=juego/jugar/<?= $nivel ?>" class="btn-restart" id="btn-restart">🔄 Reiniciar</a>
-    <a href="/?url=juego" class="btn-restart">🏠 Inicio</a>
+    <a href="index.php?url=juego/jugar/<?= $nivel ?>" class="btn-restart" id="btn-restart">🔄 Reiniciar</a>
+    <a href="index.php?url=juego" class="btn-restart">🏠 Inicio</a>
 </div>
 
 <!-- Board -->
@@ -207,7 +207,7 @@
         </div>
         <input type="text" id="playerName" placeholder="Tu nombre para el marcador..." maxlength="30">
         <button class="btn-save" onclick="savScore()">🏆 Guardar Puntaje</button>
-        <a href="/?url=juego/jugar/<?= $nivel ?>" class="btn-play-again">🔄 Jugar de nuevo</a>
+        <a href="index.php?url=juego/jugar/<?= $nivel ?>" class="btn-play-again">🔄 Jugar de nuevo</a>
     </div>
 </div>
 
@@ -294,7 +294,7 @@ function showWin() {
 function savScore() {
     const nombre = document.getElementById('playerName').value.trim() || 'Anónimo';
     const secs   = getElapsedSeconds();
-    fetch('/?url=juego/guardarPuntaje', {
+    fetch('index.php?url=juego/guardarPuntaje', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ nombre, nivel: NIVEL, movimientos: moves, tiempo_segundos: secs })
@@ -302,10 +302,10 @@ function savScore() {
     .then(r => r.json())
     .then(data => {
         if (data.ok) {
-            window.location.href = '/?url=juego/puntajes';
+            window.location.href = 'index.php?url=juego/puntajes';
         }
     })
-    .catch(() => { window.location.href = '/?url=juego'; });
+    .catch(() => { window.location.href = 'index.php?url=juego'; });
 }
 </script>
 </body>

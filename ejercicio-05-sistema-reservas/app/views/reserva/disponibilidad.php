@@ -109,13 +109,13 @@
         <p style="font-size: .85rem; opacity: .85; margin-top: .2rem;">Verifica las horas libres para agendar tu servicio</p>
     </div>
     <nav class="header-nav">
-        <a href="<?= BASE_URL ?>/reserva/nueva" class="btn-header">Nueva Reserva</a>
-        <a href="<?= BASE_URL ?>/reserva" class="btn-header">Listado General</a>
+        <a href="index.php?url=reserva/nueva" class="btn-header">Nueva Reserva</a>
+        <a href="index.php?url=reserva" class="btn-header">Listado General</a>
     </nav>
 </header>
 <main>
     <div class="card">
-        <form method="GET" action="<?= BASE_URL ?>/reserva/disponibilidad" class="form-grid">
+        <form method="GET" action="index.php?url=reserva/disponibilidad" class="form-grid">
             <div>
                 <label for="servicio_id">Servicio</label>
                 <select name="servicio_id" id="servicio_id" required>

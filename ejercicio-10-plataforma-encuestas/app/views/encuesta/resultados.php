@@ -32,7 +32,7 @@
     <div>
         <h1>📊 Resultados: <?= htmlspecialchars($encuesta['titulo']) ?></h1>
     </div>
-    <a href="/?url=encuesta/administrar" class="btn-b">← Administrar</a>
+    <a href="index.php?url=encuesta/administrar" class="btn-b">← Administrar</a>
 </header>
 <div class="container">
     <div class="stats-row">

@@ -145,7 +145,7 @@ $difColors  = ['Fácil'=>'#22c55e','Media'=>'#f59e0b','Difícil'=>'#ef4444'];
         <h1>🍳 Plataforma de Recetas</h1>
         <p>Busca, guarda y comparte tus recetas favoritas</p>
     </div>
-    <a href="/?url=receta/nueva" class="btn-add">➕ Agregar Receta</a>
+    <a href="index.php?url=receta/nueva" class="btn-add">➕ Agregar Receta</a>
 </header>
 
 <div class="container">
@@ -155,7 +155,7 @@ $difColors  = ['Fácil'=>'#22c55e','Media'=>'#f59e0b','Difícil'=>'#ef4444'];
     <?php endif; ?>
 
     <!-- Filtros -->
-    <form class="filters" method="GET" action="/">
+    <form class="filters" method="GET" action="index.php">
         <input type="hidden" name="url" value="receta">
         <div>
             <label>🔍 Buscar</label>
@@ -185,7 +185,7 @@ $difColors  = ['Fácil'=>'#22c55e','Media'=>'#f59e0b','Difícil'=>'#ef4444'];
                    value="<?= htmlspecialchars($filtros['tiempo_max'] ?? '') ?>">
         </div>
         <button type="submit" class="btn-filter">Filtrar</button>
-        <a href="/?url=receta" class="btn-clear">✕ Limpiar</a>
+        <a href="index.php?url=receta" class="btn-clear">✕ Limpiar</a>
     </form>
 
     <!-- Grid de recetas -->
@@ -214,7 +214,7 @@ $difColors  = ['Fácil'=>'#22c55e','Media'=>'#f59e0b','Difícil'=>'#ef4444'];
                         <span>👥 <?= $r['porciones'] ?> porciones</span>
                         <span>🧪 <?= count($r['ingredientes']) ?> ingredientes</span>
                     </div>
-                    <a href="/?url=receta/ver/<?= $r['id'] ?>" class="btn-ver">👁️ Ver Receta</a>
+                    <a href="index.php?url=receta/ver/<?= $r['id'] ?>" class="btn-ver">👁️ Ver Receta</a>
                 </div>
             </div>
             <?php endforeach; ?>

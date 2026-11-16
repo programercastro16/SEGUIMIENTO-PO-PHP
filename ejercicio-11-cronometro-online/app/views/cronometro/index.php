@@ -54,7 +54,7 @@
 <body>
 <header>
     <h1>⏱️ Cronómetro Online</h1>
-    <a href="/?url=cronometro/historial" class="btn-hist">📋 Historial</a>
+    <a href="index.php?url=cronometro/historial" class="btn-hist">📋 Historial</a>
 </header>
 <main>
     <!-- Display -->
@@ -92,7 +92,7 @@
         <h3>💾 Guardar esta sesión</h3>
         <input type="text" id="session-name" placeholder="Nombre de la sesión (ej: Carrera 100m)" maxlength="80">
         <button class="btn-save" onclick="saveSesion()">💾 Guardar Sesión</button>
-        <div class="save-msg" id="save-msg">✅ Sesión guardada. <a href="/?url=cronometro/historial" style="color:#34d399">Ver historial →</a></div>
+        <div class="save-msg" id="save-msg">✅ Sesión guardada. <a href="index.php?url=cronometro/historial" style="color:#34d399">Ver historial →</a></div>
     </div>
 </main>
 
@@ -215,7 +215,7 @@ function renderLaps() {
 function saveSesion() {
     const nombre = document.getElementById('session-name').value.trim() || 'Sin nombre';
     const totalMs = getElapsed();
-    fetch('/?url=cronometro/guardar', {
+    fetch('index.php?url=cronometro/guardar', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ nombre_sesion: nombre, tiempo_total_ms: totalMs, vueltas: laps })

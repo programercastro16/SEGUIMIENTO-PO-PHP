@@ -44,7 +44,7 @@ class CronometroController extends Controller {
 
     public function verSesion(string $id = ''): void {
         $sesion = $this->model->getById($id);
-        if (!$sesion) { header('Location: /?url=cronometro/historial'); exit; }
+        if (!$sesion) { header('Location: index.php?url=cronometro/historial'); exit; }
         $this->view('cronometro/sesion', compact('sesion'));
     }
 
@@ -52,7 +52,7 @@ class CronometroController extends Controller {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->model->eliminar($_POST['id'] ?? '');
         }
-        header('Location: /?url=cronometro/historial');
+        header('Location: index.php?url=cronometro/historial');
         exit;
     }
 }

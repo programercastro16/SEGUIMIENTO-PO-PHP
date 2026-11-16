@@ -368,7 +368,7 @@
 <header class="header">
     <div class="header-inner">
         <h1>📔 Gestor de Notas</h1>
-        <form class="search-form" method="GET" action="<?= BASE_URL ?>/nota/index">
+        <form class="search-form" method="GET" action="index.php?url=nota/index">
             <?php if (!empty($catActiva)): ?>
                 <input type="hidden" name="cat" value="<?= htmlspecialchars($catActiva) ?>">
             <?php endif; ?>
@@ -384,14 +384,14 @@
 <!-- ── Category filters ───────────────────────────────────────── -->
 <nav class="cats-wrap">
     <div class="cats-inner">
-        <a href="<?= BASE_URL ?>/nota/index<?= !empty($busqueda) ? '?q=' . urlencode($busqueda) : '' ?>"
+        <a href="index.php?url=nota/index<?= !empty($busqueda) ? '?q=' . urlencode($busqueda) : '' ?>"
            class="cat-pill all <?= empty($catActiva) ? 'active' : '' ?>">
             🗂️ Todas
         </a>
         <?php foreach ($categorias as $cat): ?>
             <?php
                 $active = strtolower($catActiva) === strtolower($cat) ? 'active' : '';
-                $url    = BASE_URL . '/nota/index?cat=' . urlencode($cat);
+                $url    = 'index.php?url=nota/index&cat=' . urlencode($cat);
                 if (!empty($busqueda)) $url .= '&q=' . urlencode($busqueda);
             ?>
             <a href="<?= $url ?>"
@@ -422,7 +422,7 @@
             <?php endif; ?>
         </p>
         <?php if (!empty($busqueda) || !empty($catActiva)): ?>
-            <a href="<?= BASE_URL ?>/nota/index" class="btn-clear">✕ Limpiar filtros</a>
+            <a href="index.php?url=nota/index" class="btn-clear">✕ Limpiar filtros</a>
         <?php endif; ?>
     </div>
 
@@ -433,7 +433,7 @@
             <?php if (!empty($busqueda) || !empty($catActiva)): ?>
                 <h2>Sin resultados</h2>
                 <p>No se encontraron notas con esos criterios.</p>
-                <a href="<?= BASE_URL ?>/nota/index" class="btn-clear">Ver todas las notas</a>
+                <a href="index.php?url=nota/index" class="btn-clear">Ver todas las notas</a>
             <?php else: ?>
                 <h2>¡Aún no hay notas!</h2>
                 <p>Haz clic en el botón <strong>+</strong> para crear tu primera nota.</p>
@@ -453,7 +453,7 @@
                 ?>
                 <article class="note-card <?= $color ?>">
                     <h2 class="note-title">
-                        <a href="<?= BASE_URL ?>/nota/ver/<?= urlencode($nota['id']) ?>">
+                        <a href="index.php?url=nota/ver/<?= urlencode($nota['id']) ?>">
                             <?= htmlspecialchars($nota['titulo']) ?>
                         </a>
                     </h2>
@@ -463,12 +463,12 @@
                         <span class="note-date">📅 <?= $fecha ?></span>
                     </div>
                     <div class="note-actions">
-                        <a href="<?= BASE_URL ?>/nota/ver/<?= urlencode($nota['id']) ?>"
+                        <a href="index.php?url=nota/ver/<?= urlencode($nota['id']) ?>"
                            class="btn-sm btn-view">👁 Ver</a>
-                        <a href="<?= BASE_URL ?>/nota/editar/<?= urlencode($nota['id']) ?>"
+                        <a href="index.php?url=nota/editar/<?= urlencode($nota['id']) ?>"
                            class="btn-sm btn-edit">✏️ Editar</a>
                         <form method="POST"
-                              action="<?= BASE_URL ?>/nota/eliminar"
+                              action="index.php?url=nota/eliminar"
                               onsubmit="return confirm('¿Eliminar esta nota?');"
                               style="display:inline;">
                             <input type="hidden" name="id" value="<?= htmlspecialchars($nota['id']) ?>">
@@ -483,7 +483,7 @@
 </main>
 
 <!-- ── FAB ────────────────────────────────────────────────────── -->
-<a href="<?= BASE_URL ?>/nota/nueva" class="fab" title="Nueva nota">＋</a>
+<a href="index.php?url=nota/nueva" class="fab" title="Nueva nota">＋</a>
 <span class="fab-label">Nueva Nota</span>
 
 </body>

@@ -207,8 +207,8 @@
         <p>Gestión de citas y disponibilidad</p>
     </div>
     <nav class="header-nav">
-        <a href="<?= BASE_URL ?>/reserva/disponibilidad" class="btn-header">🗓️ Disponibilidad</a>
-        <a href="<?= BASE_URL ?>/reserva/nueva" class="btn-header">➕ Nueva Reserva</a>
+        <a href="index.php?url=reserva/disponibilidad" class="btn-header">🗓️ Disponibilidad</a>
+        <a href="index.php?url=reserva/nueva" class="btn-header">➕ Nueva Reserva</a>
     </nav>
 </header>
 
@@ -258,13 +258,13 @@
                 'cancelado'  => '🔴 Cancelada',
             ];
             foreach ($filtros as $key => $label): ?>
-                <a href="<?= BASE_URL ?>/reserva?estado=<?= $key ?>"
+                <a href="index.php?url=reserva&estado=<?= $key ?>"
                    class="filter-btn <?= $filtroEstado === $key ? 'activo' : '' ?>">
                     <?= $label ?>
                 </a>
             <?php endforeach; ?>
         </div>
-        <a href="<?= BASE_URL ?>/reserva/nueva" class="btn-primary">➕ Nueva Reserva</a>
+        <a href="index.php?url=reserva/nueva" class="btn-primary">➕ Nueva Reserva</a>
     </div>
 
     <!-- Table -->
@@ -316,14 +316,14 @@
                     <td>
                         <div class="acciones">
                             <?php if ($r['estado'] === 'pendiente'): ?>
-                                <a href="<?= BASE_URL ?>/reserva/confirmar/<?= urlencode($r['id']) ?>"
+                                <a href="index.php?url=reserva/confirmar/<?= urlencode($r['id']) ?>"
                                    class="btn-sm btn-confirmar"
                                    onclick="return confirm('¿Confirmar esta reserva?')">✔ Confirmar</a>
-                                <a href="<?= BASE_URL ?>/reserva/cancelar/<?= urlencode($r['id']) ?>"
+                                <a href="index.php?url=reserva/cancelar/<?= urlencode($r['id']) ?>"
                                    class="btn-sm btn-cancelar"
                                    onclick="return confirm('¿Cancelar esta reserva?')">✖ Cancelar</a>
                             <?php elseif ($r['estado'] === 'confirmado'): ?>
-                                <a href="<?= BASE_URL ?>/reserva/cancelar/<?= urlencode($r['id']) ?>"
+                                <a href="index.php?url=reserva/cancelar/<?= urlencode($r['id']) ?>"
                                    class="btn-sm btn-cancelar"
                                    onclick="return confirm('¿Cancelar esta reserva confirmada?')">✖ Cancelar</a>
                             <?php else: ?>

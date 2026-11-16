@@ -229,8 +229,8 @@ function formatHora(string $h): string {
 <header class="app-header">
   <h1>📆 Calendario de Eventos</h1>
   <div style="display:flex;gap:.5rem;">
-    <a href="<?= BASE_URL ?>/evento/proximos" class="btn btn-outline">📋 Próximos</a>
-    <a href="<?= BASE_URL ?>/evento/nuevo" class="btn btn-primary">＋ Nuevo Evento</a>
+    <a href="index.php?url=evento/proximos" class="btn btn-outline">📋 Próximos</a>
+    <a href="index.php?url=evento/nuevo" class="btn btn-primary">＋ Nuevo Evento</a>
   </div>
 </header>
 
@@ -239,9 +239,9 @@ function formatHora(string $h): string {
   <!-- ── Calendar ── -->
   <div class="cal-card">
     <div class="cal-nav">
-      <a href="<?= BASE_URL ?>/evento/index?mes=<?= $mesPrev ?>&anio=<?= $anioPrev ?>" title="Mes anterior">&#8592;</a>
+      <a href="index.php?url=evento/index&mes=<?= $mesPrev ?>&anio=<?= $anioPrev ?>" title="Mes anterior">&#8592;</a>
       <h2><?= $mesesNombres[$mes] ?> <?= $anio ?></h2>
-      <a href="<?= BASE_URL ?>/evento/index?mes=<?= $mesSig ?>&anio=<?= $anioSig ?>" title="Mes siguiente">&#8594;</a>
+      <a href="index.php?url=evento/index&mes=<?= $mesSig ?>&anio=<?= $anioSig ?>" title="Mes siguiente">&#8594;</a>
     </div>
 
     <div class="cal-grid">
@@ -265,9 +265,9 @@ function formatHora(string $h): string {
         <div class="<?= $clases ?>">
           <div class="day-num">
             <?php if (!empty($evsDia)): ?>
-              <a href="<?= BASE_URL ?>/evento/dia/<?= $fechaStr ?>"><?= $dia ?></a>
+              <a href="index.php?url=evento/dia/<?= $fechaStr ?>"><?= $dia ?></a>
             <?php else: ?>
-              <a href="<?= BASE_URL ?>/evento/nuevo?fecha=<?= $fechaStr ?>" style="color:inherit;opacity:.5"><?= $dia ?></a>
+              <a href="index.php?url=evento/nuevo?fecha=<?= $fechaStr ?>" style="color:inherit;opacity:.5"><?= $dia ?></a>
             <?php endif; ?>
           </div>
           <?php if (!empty($evsDia)): ?>
@@ -275,14 +275,14 @@ function formatHora(string $h): string {
             <?php $mostrar = array_slice($evsDia, 0, 3); ?>
             <?php foreach ($mostrar as $ev): ?>
               <a class="event-pill"
-                 href="<?= BASE_URL ?>/evento/dia/<?= $fechaStr ?>"
+                 href="index.php?url=evento/dia/<?= $fechaStr ?>"
                  style="background:<?= htmlspecialchars($ev['color']) ?>"
                  title="<?= htmlspecialchars($ev['titulo']) ?>">
                 <?= htmlspecialchars(mb_substr($ev['titulo'], 0, 18)) ?>
               </a>
             <?php endforeach; ?>
             <?php if (count($evsDia) > 3): ?>
-              <a class="more-events" href="<?= BASE_URL ?>/evento/dia/<?= $fechaStr ?>">+<?= count($evsDia) - 3 ?> más…</a>
+              <a class="more-events" href="index.php?url=evento/dia/<?= $fechaStr ?>">+<?= count($evsDia) - 3 ?> más…</a>
             <?php endif; ?>
           </div>
           <?php endif; ?>
@@ -330,7 +330,7 @@ function formatHora(string $h): string {
         ?>
           <div class="proximo-fecha-sep"><?= $etiqueta ?></div>
         <?php endif; ?>
-          <a class="proximo-item" href="<?= BASE_URL ?>/evento/dia/<?= $pev['fecha'] ?>">
+          <a class="proximo-item" href="index.php?url=evento/dia/<?= $pev['fecha'] ?>">
             <span class="proximo-dot" style="background:<?= htmlspecialchars($pev['color']) ?>"></span>
             <div class="proximo-info">
               <div class="proximo-titulo"><?= htmlspecialchars($pev['titulo']) ?></div>
@@ -348,13 +348,13 @@ function formatHora(string $h): string {
     <div class="sidebar-card">
       <div class="sidebar-card-header">➕ Acciones rápidas</div>
       <div style="padding:.75rem;display:flex;flex-direction:column;gap:.5rem;">
-        <a href="<?= BASE_URL ?>/evento/nuevo" class="btn btn-primary" style="justify-content:center;background:var(--purple-700);color:#fff;">
+        <a href="index.php?url=evento/nuevo" class="btn btn-primary" style="justify-content:center;background:var(--purple-700);color:#fff;">
           ＋ Nuevo Evento
         </a>
-        <a href="<?= BASE_URL ?>/evento/nuevo?fecha=<?= $hoy ?>" class="btn btn-outline" style="color:var(--purple-700);border-color:var(--purple-300);justify-content:center;">
+        <a href="index.php?url=evento/nuevo?fecha=<?= $hoy ?>" class="btn btn-outline" style="color:var(--purple-700);border-color:var(--purple-300);justify-content:center;">
           📅 Evento Hoy
         </a>
-        <a href="<?= BASE_URL ?>/evento/dia/<?= $hoy ?>" class="btn btn-outline" style="color:var(--purple-700);border-color:var(--purple-300);justify-content:center;">
+        <a href="index.php?url=evento/dia/<?= $hoy ?>" class="btn btn-outline" style="color:var(--purple-700);border-color:var(--purple-300);justify-content:center;">
           👁 Ver Hoy
         </a>
       </div>

@@ -4,7 +4,7 @@
  */
 $esEdicion = !empty($nota['id']);
 $titulo    = $esEdicion ? '✏️ Editar Nota' : '📝 Nueva Nota';
-$accion    = $esEdicion ? '/?url=nota/editar/' . $nota['id'] : '/?url=nota/nueva';
+$accion    = $esEdicion ? 'index.php?url=nota/editar/' . $nota['id'] : 'index.php?url=nota/nueva';
 
 $colores = [
     'amarillo' => ['bg'=>'#fff9c4','border'=>'#f9a825','label'=>'Amarillo'],
@@ -158,7 +158,7 @@ $colorSeleccionado = $nota['color'] ?? 'amarillo';
         </div>
 
         <div class="btn-row">
-            <a href="/?url=nota" class="btn-secondary">← Cancelar</a>
+            <a href="index.php?url=nota" class="btn-secondary">← Cancelar</a>
             <button type="submit" class="btn-primary">
                 <?= $esEdicion ? '💾 Guardar Cambios' : '📝 Crear Nota' ?>
             </button>

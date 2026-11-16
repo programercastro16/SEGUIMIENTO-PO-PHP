@@ -33,13 +33,13 @@
 <header>
     <div><h1>⚙️ Administrar Encuestas</h1></div>
     <div style="display:flex;gap:.75rem;">
-        <a href="/?url=encuesta/nueva" class="btn-h">➕ Nueva Encuesta</a>
-        <a href="/?url=encuesta" class="btn-h">👁️ Vista Pública</a>
+        <a href="index.php?url=encuesta/nueva" class="btn-h">➕ Nueva Encuesta</a>
+        <a href="index.php?url=encuesta" class="btn-h">👁️ Vista Pública</a>
     </div>
 </header>
 <div class="container">
     <?php if (empty($encuestas)): ?>
-        <div class="empty"><p>No hay encuestas creadas. <a href="/?url=encuesta/nueva">Crear primera encuesta</a></p></div>
+        <div class="empty"><p>No hay encuestas creadas. <a href="index.php?url=encuesta/nueva">Crear primera encuesta</a></p></div>
     <?php else: ?>
     <div class="table-wrap">
         <table>
@@ -54,13 +54,13 @@
                     <td><?= date('d/m/Y', strtotime($e['created_at'])) ?></td>
                     <td>
                         <div class="actions">
-                            <a href="/?url=encuesta/resultados/<?= $e['id'] ?>" class="btn-sm btn-results">📊 Resultados</a>
+                            <a href="index.php?url=encuesta/resultados/<?= $e['id'] ?>" class="btn-sm btn-results">📊 Resultados</a>
                             <?php if ($e['estado'] === 'activa'): ?>
-                                <a href="/?url=encuesta/cerrar/<?= $e['id'] ?>" class="btn-sm btn-close">🔒 Cerrar</a>
+                                <a href="index.php?url=encuesta/cerrar/<?= $e['id'] ?>" class="btn-sm btn-close">🔒 Cerrar</a>
                             <?php else: ?>
-                                <a href="/?url=encuesta/activar/<?= $e['id'] ?>" class="btn-sm btn-open">🔓 Activar</a>
+                                <a href="index.php?url=encuesta/activar/<?= $e['id'] ?>" class="btn-sm btn-open">🔓 Activar</a>
                             <?php endif; ?>
-                            <form action="/?url=encuesta/eliminar" method="POST" onsubmit="return confirm('¿Eliminar esta encuesta y todas sus respuestas?')">
+                            <form action="index.php?url=encuesta/eliminar" method="POST" onsubmit="return confirm('¿Eliminar esta encuesta y todas sus respuestas?')">
                                 <input type="hidden" name="id" value="<?= $e['id'] ?>">
                                 <button type="submit" class="btn-sm btn-del">🗑️</button>
                             </form>

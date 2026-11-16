@@ -6,5 +6,13 @@
         "puntuacion": 100,
         "color": "#00bcd4",
         "fecha": "08\/11\/2026 22:21:01"
+    },
+    {
+        "password_mascara": "hSj**********DL8",
+        "longitud": 16,
+        "fortaleza": "Fuerte",
+        "puntuacion": 70,
+        "color": "#4caf50",
+        "fecha": "16\/11\/2026 17:23:09"
     }
 ]

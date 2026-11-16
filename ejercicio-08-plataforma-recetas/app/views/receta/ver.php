@@ -47,7 +47,7 @@
 </head>
 <body>
 <header>
-    <a href="/?url=receta" class="btn-back">← Recetas</a>
+    <a href="index.php?url=receta" class="btn-back">← Recetas</a>
     <h1 style="font-size:1.3rem;font-weight:800;"><?= htmlspecialchars($receta['titulo']) ?></h1>
 </header>
 <div class="container">
@@ -88,9 +88,9 @@
         · 📅 <?= date('d/m/Y', strtotime($receta['created_at'])) ?></p>
 
     <div class="actions">
-        <a href="/?url=receta" class="btn btn-back-sm">← Volver</a>
-        <a href="/?url=receta/editar/<?= $receta['id'] ?>" class="btn btn-edit">✏️ Editar</a>
-        <form action="/?url=receta/eliminar" method="POST" onsubmit="return confirm('¿Eliminar esta receta?')">
+        <a href="index.php?url=receta" class="btn btn-back-sm">← Volver</a>
+        <a href="index.php?url=receta/editar/<?= $receta['id'] ?>" class="btn btn-edit">✏️ Editar</a>
+        <form action="index.php?url=receta/eliminar" method="POST" onsubmit="return confirm('¿Eliminar esta receta?')">
             <input type="hidden" name="id" value="<?= $receta['id'] ?>">
             <button type="submit" class="btn btn-delete">🗑️ Eliminar</button>
         </form>

@@ -1,7 +1,7 @@
 <?php
 $esEdicion = !empty($receta['id']);
 $titulo    = $esEdicion ? '✏️ Editar Receta' : '➕ Nueva Receta';
-$accion    = $esEdicion ? '/?url=receta/editar/' . $receta['id'] : '/?url=receta/nueva';
+$accion    = $esEdicion ? 'index.php?url=receta/editar/' . $receta['id'] : 'index.php?url=receta/nueva';
 $ingText   = $esEdicion ? implode("\n", $receta['ingredientes'] ?? []) : '';
 $instText  = $esEdicion ? implode("\n", $receta['instrucciones'] ?? []) : '';
 ?>
@@ -105,7 +105,7 @@ $instText  = $esEdicion ? implode("\n", $receta['instrucciones'] ?? []) : '';
         </div>
 
         <div class="btn-row">
-            <a href="/?url=receta" class="btn-secondary">← Cancelar</a>
+            <a href="index.php?url=receta" class="btn-secondary">← Cancelar</a>
             <button type="submit" class="btn-primary"><?= $esEdicion ? '💾 Guardar Cambios' : '🍳 Publicar Receta' ?></button>
         </div>
     </form>

@@ -40,7 +40,7 @@
     <?php if (!empty($errores)): ?>
         <div class="errores"><ul><?php foreach ($errores as $e): ?><li><?= htmlspecialchars($e) ?></li><?php endforeach; ?></ul></div>
     <?php endif; ?>
-    <form action="/?url=encuesta/nueva" method="POST" onsubmit="serializePreguntas()">
+    <form action="index.php?url=encuesta/nueva" method="POST" onsubmit="serializePreguntas()">
         <div class="card">
             <h2>📌 Información de la Encuesta</h2>
             <div class="form-group">
@@ -59,7 +59,7 @@
         </div>
         <input type="hidden" name="preguntas" id="preguntas-json" value="[]">
         <div class="btn-row">
-            <a href="/?url=encuesta/administrar" class="btn-secondary">← Cancelar</a>
+            <a href="index.php?url=encuesta/administrar" class="btn-secondary">← Cancelar</a>
             <button type="submit" class="btn-primary">📤 Publicar Encuesta</button>
         </div>
     </form>

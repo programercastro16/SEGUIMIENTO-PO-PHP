@@ -41,12 +41,12 @@
 
     <?php if ($yaRespondio): ?>
         <div class="already">✅ Ya respondiste esta encuesta. ¡Gracias por tu participación!</div>
-        <p style="text-align:center;margin-top:1rem"><a href="/?url=encuesta">← Volver a encuestas</a></p>
+        <p style="text-align:center;margin-top:1rem"><a href="index.php?url=encuesta">← Volver a encuestas</a></p>
     <?php else: ?>
         <?php if (!empty($errores)): ?>
             <div class="errores"><ul><?php foreach ($errores as $e): ?><li><?= htmlspecialchars($e) ?></li><?php endforeach; ?></ul></div>
         <?php endif; ?>
-        <form action="/?url=encuesta/responder/<?= $encuesta['id'] ?>" method="POST">
+        <form action="index.php?url=encuesta/responder/<?= $encuesta['id'] ?>" method="POST">
             <?php foreach ($encuesta['preguntas'] as $i => $p): ?>
             <div class="pregunta-card">
                 <div class="pregunta-num">Pregunta <?= $i+1 ?> de <?= count($encuesta['preguntas']) ?></div>
